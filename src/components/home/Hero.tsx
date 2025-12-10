@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Calendar, Clock, Users } from "lucide-react";
@@ -6,24 +6,57 @@ import volleyballHero from "@/assets/volleyball-hero.jpg";
 
 export function Hero() {
   const [bookingType, setBookingType] = useState<"dinner" | "event">("dinner");
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Lazy load video after page load for performance
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.load();
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video/Image Background with lazy loading optimization */}
+      {/* Video/Image Background */}
       <div className="absolute inset-0">
-        {/* Poster image loads first for performance */}
+        {/* Poster image loads first */}
         <img
           src={volleyballHero}
           alt="Crossroads Bar & Grill atmosphere"
-          className="w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? "opacity-0" : "opacity-100"
+          }`}
           loading="eager"
           fetchPriority="high"
         />
-        {/* Gradient overlay for readability */}
+        
+        {/* Video background - lazy loaded */}
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster={volleyballHero}
+          onCanPlay={() => setVideoLoaded(true)}
+        >
+          {/* Add video sources here when available */}
+          {/* <source src="/videos/bar-atmosphere.webm" type="video/webm" /> */}
+          {/* <source src="/videos/bar-atmosphere.mp4" type="video/mp4" /> */}
+        </video>
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 bg-hero-pattern" />
-        {/* Warm ambient glow */}
-        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-mahogany-dark/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-mahogany-dark/50 to-transparent" />
       </div>
 
       {/* Content */}
