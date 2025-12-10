@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Trophy, Calendar, Users, Award, ArrowRight } from "lucide-react";
+import { AnimatedSection, StaggeredContainer } from "@/hooks/use-scroll-animation";
 import volleyballHero from "@/assets/volleyball-hero.jpg";
 
 const features = [
@@ -20,19 +21,21 @@ export function VolleyballCTA() {
       
       <div className="relative z-10 container-max px-4 md:px-8">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-amber/20 text-amber px-4 py-2 rounded-full mb-6">
-            <Trophy className="w-5 h-5" />
-            <span className="font-medium">Registration Opens March 1st</span>
-          </div>
-          
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream mb-6">
-            Join Our <span className="text-gradient">Volleyball League</span>
-          </h2>
-          <p className="text-cream/85 text-lg mb-8 max-w-2xl">
-            Experience the thrill of competition in our premier outdoor volleyball leagues. Great games, cold drinks, and lasting friendships await.
-          </p>
+          <AnimatedSection animation="fade-up">
+            <div className="inline-flex items-center gap-2 bg-amber/20 text-amber px-4 py-2 rounded-full mb-6">
+              <Trophy className="w-5 h-5" />
+              <span className="font-medium">Registration Opens March 1st</span>
+            </div>
+            
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream mb-6">
+              Join Our <span className="text-gradient">Volleyball League</span>
+            </h2>
+            <p className="text-cream/85 text-lg mb-8 max-w-2xl">
+              Experience the thrill of competition in our premier outdoor volleyball leagues. Great games, cold drinks, and lasting friendships await.
+            </p>
+          </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <StaggeredContainer className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8" staggerDelay={80}>
             {features.map((feature) => (
               <div key={feature.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-cream/10 flex items-center justify-center">
@@ -41,16 +44,18 @@ export function VolleyballCTA() {
                 <span className="text-cream font-medium">{feature.label}</span>
               </div>
             ))}
-          </div>
+          </StaggeredContainer>
 
-          <div className="flex flex-wrap gap-4">
-            <Button variant="gold" size="lg" asChild>
-              <Link to="/volleyball#register">Register Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
-            </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <Link to="/volleyball/rules">League Rules</Link>
-            </Button>
-          </div>
+          <AnimatedSection animation="fade-up" delay={300}>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="gold" size="lg" asChild>
+                <Link to="/volleyball#register">Register Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+              <Button variant="heroOutline" size="lg" asChild>
+                <Link to="/volleyball/rules">League Rules</Link>
+              </Button>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

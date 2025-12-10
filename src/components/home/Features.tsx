@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Utensils, Wine, Trophy } from "lucide-react";
+import { AnimatedSection, StaggeredContainer } from "@/hooks/use-scroll-animation";
 import broastedChicken from "@/assets/broasted-chicken.png";
 import barAtmosphere from "@/assets/bar-atmosphere.jpg";
 import volleyballHero from "@/assets/volleyball-hero.jpg";
@@ -13,7 +14,7 @@ const features = [
     image: broastedChicken,
     link: "/menus",
     linkText: "View Menus",
-    accent: "bg-gold/20 text-gold",
+    accent: "bg-amber/20 text-amber",
   },
   {
     icon: Wine,
@@ -22,7 +23,7 @@ const features = [
     image: barAtmosphere,
     link: "/events",
     linkText: "Plan an Event",
-    accent: "bg-forest/20 text-forest",
+    accent: "bg-primary/20 text-primary",
   },
   {
     icon: Trophy,
@@ -31,7 +32,7 @@ const features = [
     image: volleyballHero,
     link: "/volleyball",
     linkText: "Register Now",
-    accent: "bg-gold/20 text-gold",
+    accent: "bg-amber/20 text-amber",
   },
 ];
 
@@ -39,19 +40,18 @@ export function Features() {
   return (
     <section id="features" className="section-padding bg-background">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16" animation="fade-up">
           <p className="text-accent font-medium tracking-widest uppercase mb-3">What We Offer</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
             Three Reasons to Visit
           </h2>
-        </div>
+        </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        <StaggeredContainer className="grid md:grid-cols-3 gap-8" staggerDelay={150}>
+          {features.map((feature) => (
             <div
               key={feature.title}
               className="group bg-card rounded-2xl overflow-hidden shadow-lg card-hover"
-              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -60,7 +60,7 @@ export function Features() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
                 <div className={`absolute top-4 left-4 w-12 h-12 ${feature.accent} rounded-xl flex items-center justify-center`}>
                   <feature.icon className="w-6 h-6" />
                 </div>
@@ -78,7 +78,7 @@ export function Features() {
               </div>
             </div>
           ))}
-        </div>
+        </StaggeredContainer>
       </div>
     </section>
   );

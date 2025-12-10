@@ -1,3 +1,4 @@
+import { AnimatedSection, StaggeredContainer } from "@/hooks/use-scroll-animation";
 import communityGathering from "@/assets/community-gathering.png";
 
 const stats = [
@@ -20,19 +21,21 @@ export function Community() {
       
       <div className="relative z-10 container-max px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-amber font-medium tracking-widest uppercase mb-4">
-            The Crossroads Community
-          </p>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream mb-6">
-            More Than a Restaurant
-          </h2>
-          <p className="text-cream/85 text-lg md:text-xl mb-12">
-            For over two decades, we've been the gathering place where families celebrate, 
-            friends reconnect, and neighbors become lifelong teammates.
-          </p>
+          <AnimatedSection animation="fade-up">
+            <p className="text-amber font-medium tracking-widest uppercase mb-4">
+              The Crossroads Community
+            </p>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream mb-6">
+              More Than a Restaurant
+            </h2>
+            <p className="text-cream/85 text-lg md:text-xl mb-12">
+              For over two decades, we've been the gathering place where families celebrate, 
+              friends reconnect, and neighbors become lifelong teammates.
+            </p>
+          </AnimatedSection>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <StaggeredContainer className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" staggerDelay={100}>
             {stats.map((stat) => (
               <div 
                 key={stat.label} 
@@ -44,7 +47,7 @@ export function Community() {
                 <div className="text-cream/80 text-sm md:text-base">{stat.label}</div>
               </div>
             ))}
-          </div>
+          </StaggeredContainer>
         </div>
       </div>
     </section>

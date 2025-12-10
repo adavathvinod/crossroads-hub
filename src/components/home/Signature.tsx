@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import broastedChicken from "@/assets/broasted-chicken.png";
 
 export function Signature() {
@@ -9,26 +10,28 @@ export function Signature() {
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="relative">
-            <div className="absolute -top-4 -left-4 w-full h-full bg-accent/20 rounded-2xl" />
-            <img
-              src={broastedChicken}
-              alt="Signature Broasted Chicken"
-              className="relative rounded-2xl shadow-2xl w-full object-cover aspect-square"
-              loading="lazy"
-            />
-            <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground rounded-xl p-4 shadow-lg">
-              <div className="flex items-center gap-1 mb-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
+          <AnimatedSection animation="slide-right" duration={700}>
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-full h-full bg-accent/20 rounded-2xl" />
+              <img
+                src={broastedChicken}
+                alt="Signature Broasted Chicken"
+                className="relative rounded-2xl shadow-2xl w-full object-cover aspect-square"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground rounded-xl p-4 shadow-lg">
+                <div className="flex items-center gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-sm font-bold">Local Favorite</p>
               </div>
-              <p className="text-sm font-bold">Local Favorite</p>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Content */}
-          <div>
+          <AnimatedSection animation="slide-left" delay={200} duration={700}>
             <p className="text-accent font-medium tracking-widest uppercase mb-3">
               Our Signature Dish
             </p>
@@ -55,11 +58,11 @@ export function Signature() {
               <Button variant="gold" size="lg" asChild>
                 <Link to="/menus/lunch-dinner">View Full Menu</Link>
               </Button>
-              <Button variant="forestOutline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild>
                 <Link to="/contact">Order Takeout</Link>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
