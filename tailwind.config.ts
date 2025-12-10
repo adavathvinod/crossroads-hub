@@ -61,20 +61,26 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        forest: {
-          DEFAULT: "hsl(var(--forest))",
-          light: "hsl(var(--forest-light))",
-          dark: "hsl(var(--forest-dark))",
+        // Warm cozy sports bar palette
+        mahogany: {
+          DEFAULT: "hsl(var(--mahogany))",
+          light: "hsl(var(--mahogany-light))",
+          dark: "hsl(var(--mahogany-dark))",
+        },
+        amber: {
+          DEFAULT: "hsl(var(--amber))",
+          light: "hsl(var(--amber-light))",
+          dark: "hsl(var(--amber-dark))",
         },
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
-          dark: "hsl(var(--gold-dark))",
         },
         cream: {
           DEFAULT: "hsl(var(--cream))",
           dark: "hsl(var(--cream-dark))",
         },
+        copper: "hsl(var(--copper))",
         warmBrown: "hsl(var(--warm-brown))",
       },
       borderRadius: {
@@ -99,15 +105,21 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        pulse: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s linear infinite",
         float: "float 3s ease-in-out infinite",
+        pulse: "pulse 2s ease-in-out infinite",
       },
       backgroundImage: {
-        'hero-pattern': 'radial-gradient(circle at 20% 50%, hsl(var(--gold) / 0.1) 0%, transparent 50%)',
+        'hero-pattern': 'radial-gradient(circle at 20% 50%, hsl(var(--amber) / 0.15) 0%, transparent 50%)',
+        'warm-gradient': 'linear-gradient(135deg, hsl(var(--mahogany-dark)) 0%, hsl(var(--mahogany)) 50%, hsl(var(--mahogany-light)) 100%)',
       },
     },
   },

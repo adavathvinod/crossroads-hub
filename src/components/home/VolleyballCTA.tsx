@@ -1,65 +1,55 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Users, Trophy, ArrowRight } from "lucide-react";
+import { Trophy, Calendar, Users, Award, ArrowRight } from "lucide-react";
 import volleyballHero from "@/assets/volleyball-hero.jpg";
+
+const features = [
+  { icon: Calendar, label: "Spring & Fall Leagues" },
+  { icon: Users, label: "All Skill Levels" },
+  { icon: Trophy, label: "Weekly Tournaments" },
+  { icon: Award, label: "End of Season Awards" },
+];
 
 export function VolleyballCTA() {
   return (
-    <section className="section-padding bg-background relative overflow-hidden">
-      <div className="container-max">
-        <div className="bg-card rounded-3xl overflow-hidden shadow-2xl">
-          <div className="grid lg:grid-cols-2">
-            {/* Image */}
-            <div className="relative h-80 lg:h-auto">
-              <img
-                src={volleyballHero}
-                alt="Volleyball league action"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/80 via-forest-dark/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-card" />
-            </div>
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* Parallax Background */}
+      <div className="absolute inset-0 parallax-section" style={{ backgroundImage: `url(${volleyballHero})` }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+      </div>
+      
+      <div className="relative z-10 container-max px-4 md:px-8">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-amber/20 text-amber px-4 py-2 rounded-full mb-6">
+            <Trophy className="w-5 h-5" />
+            <span className="font-medium">Registration Opens March 1st</span>
+          </div>
+          
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream mb-6">
+            Join Our <span className="text-gradient">Volleyball League</span>
+          </h2>
+          <p className="text-cream/85 text-lg mb-8 max-w-2xl">
+            Experience the thrill of competition in our premier outdoor volleyball leagues. Great games, cold drinks, and lasting friendships await.
+          </p>
 
-            {/* Content */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-medium mb-6 w-fit">
-                <Calendar className="w-4 h-4" />
-                Registration Opens March 1st
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {features.map((feature) => (
+              <div key={feature.label} className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-cream/10 flex items-center justify-center">
+                  <feature.icon className="w-5 h-5 text-amber" />
+                </div>
+                <span className="text-cream font-medium">{feature.label}</span>
               </div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Join Our Volleyball League
-              </h2>
-              <p className="text-muted-foreground text-lg mb-8">
-                Competitive and recreational leagues for all skill levels. Play on our premium sand courts, grab food and drinks courtside, and be part of the action.
-              </p>
+            ))}
+          </div>
 
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                {[
-                  { icon: Users, label: "6+ Divisions" },
-                  { icon: Calendar, label: "Spring & Summer" },
-                  { icon: Trophy, label: "Playoffs" },
-                ].map(({ icon: Icon, label }) => (
-                  <div key={label} className="text-center">
-                    <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">{label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <Button variant="gold" size="lg" asChild>
-                  <Link to="/volleyball#register">
-                    Register Your Team
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button variant="forestOutline" size="lg" asChild>
-                  <Link to="/volleyball/rules">View Rules</Link>
-                </Button>
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-4">
+            <Button variant="gold" size="lg" asChild>
+              <Link to="/volleyball#register">Register Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
+            </Button>
+            <Button variant="heroOutline" size="lg" asChild>
+              <Link to="/volleyball/rules">League Rules</Link>
+            </Button>
           </div>
         </div>
       </div>
