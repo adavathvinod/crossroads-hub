@@ -6,60 +6,63 @@
 
 @layer base {
   :root {
-    /* Deep Forest Green Primary */
-    --background: 40 30% 97%;
-    --foreground: 150 30% 15%;
+    /* Warm Mahogany Primary - Cozy Sports Bar Feel */
+    --background: 30 25% 96%;
+    --foreground: 20 30% 15%;
 
-    --card: 40 25% 95%;
-    --card-foreground: 150 30% 15%;
+    --card: 30 20% 94%;
+    --card-foreground: 20 30% 15%;
 
-    --popover: 40 30% 97%;
-    --popover-foreground: 150 30% 15%;
+    --popover: 30 25% 96%;
+    --popover-foreground: 20 30% 15%;
 
-    /* Deep Forest Green */
-    --primary: 150 35% 22%;
-    --primary-foreground: 40 30% 97%;
+    /* Deep Mahogany */
+    --primary: 12 45% 22%;
+    --primary-foreground: 35 40% 95%;
 
     /* Warm Cream */
-    --secondary: 35 40% 92%;
-    --secondary-foreground: 150 30% 20%;
+    --secondary: 35 35% 92%;
+    --secondary-foreground: 12 35% 20%;
 
-    --muted: 35 20% 90%;
-    --muted-foreground: 150 15% 40%;
+    --muted: 30 20% 88%;
+    --muted-foreground: 20 15% 40%;
 
-    /* Vibrant Gold Accent */
-    --accent: 38 92% 50%;
-    --accent-foreground: 150 35% 15%;
+    /* Warm Amber/Gold Accent */
+    --accent: 32 95% 52%;
+    --accent-foreground: 12 45% 12%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 30% 97%;
+    --destructive-foreground: 35 40% 97%;
 
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
-    --ring: 38 92% 50%;
+    --border: 30 18% 82%;
+    --input: 30 18% 82%;
+    --ring: 32 95% 52%;
 
     --radius: 0.5rem;
 
-    /* Custom brand colors */
-    --forest: 150 35% 22%;
-    --forest-light: 150 25% 35%;
-    --forest-dark: 150 40% 12%;
-    --gold: 38 92% 50%;
-    --gold-light: 38 85% 65%;
-    --gold-dark: 38 95% 40%;
-    --cream: 40 30% 97%;
-    --cream-dark: 35 25% 90%;
-    --warm-brown: 25 35% 30%;
+    /* Custom brand colors - Warm Cozy Palette */
+    --mahogany: 12 45% 22%;
+    --mahogany-light: 12 35% 35%;
+    --mahogany-dark: 12 50% 12%;
+    --amber: 32 95% 52%;
+    --amber-light: 38 90% 65%;
+    --amber-dark: 28 95% 42%;
+    --gold: 42 85% 55%;
+    --gold-light: 45 80% 70%;
+    --cream: 35 40% 96%;
+    --cream-dark: 30 25% 88%;
+    --warm-brown: 20 40% 28%;
+    --copper: 25 70% 45%;
 
     /* Sidebar */
-    --sidebar-background: 150 35% 22%;
-    --sidebar-foreground: 40 30% 97%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 150 35% 15%;
-    --sidebar-accent: 150 25% 30%;
-    --sidebar-accent-foreground: 40 30% 97%;
-    --sidebar-border: 150 25% 30%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-background: 12 45% 22%;
+    --sidebar-foreground: 35 40% 95%;
+    --sidebar-primary: 32 95% 52%;
+    --sidebar-primary-foreground: 12 45% 12%;
+    --sidebar-accent: 12 35% 30%;
+    --sidebar-accent-foreground: 35 40% 95%;
+    --sidebar-border: 12 35% 28%;
+    --sidebar-ring: 32 95% 52%;
 
     /* Typography */
     --font-heading: 'Playfair Display', Georgia, serif;
@@ -67,42 +70,42 @@
   }
 
   .dark {
-    --background: 150 40% 8%;
-    --foreground: 40 25% 95%;
+    --background: 12 40% 6%;
+    --foreground: 35 30% 95%;
 
-    --card: 150 35% 12%;
-    --card-foreground: 40 25% 95%;
+    --card: 12 35% 10%;
+    --card-foreground: 35 30% 95%;
 
-    --popover: 150 35% 12%;
-    --popover-foreground: 40 25% 95%;
+    --popover: 12 35% 10%;
+    --popover-foreground: 35 30% 95%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 150 40% 8%;
+    --primary: 32 95% 52%;
+    --primary-foreground: 12 45% 8%;
 
-    --secondary: 150 25% 18%;
-    --secondary-foreground: 40 25% 95%;
+    --secondary: 12 25% 16%;
+    --secondary-foreground: 35 30% 95%;
 
-    --muted: 150 25% 18%;
-    --muted-foreground: 40 15% 65%;
+    --muted: 12 25% 16%;
+    --muted-foreground: 35 20% 65%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 150 40% 8%;
+    --accent: 32 95% 52%;
+    --accent-foreground: 12 45% 8%;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 40 25% 95%;
+    --destructive-foreground: 35 30% 95%;
 
-    --border: 150 25% 20%;
-    --input: 150 25% 20%;
-    --ring: 38 92% 50%;
+    --border: 12 25% 18%;
+    --input: 12 25% 18%;
+    --ring: 32 95% 52%;
 
-    --sidebar-background: 150 40% 6%;
-    --sidebar-foreground: 40 25% 95%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 150 40% 8%;
-    --sidebar-accent: 150 30% 15%;
-    --sidebar-accent-foreground: 40 25% 95%;
-    --sidebar-border: 150 25% 15%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-background: 12 45% 5%;
+    --sidebar-foreground: 35 30% 95%;
+    --sidebar-primary: 32 95% 52%;
+    --sidebar-primary-foreground: 12 45% 8%;
+    --sidebar-accent: 12 30% 14%;
+    --sidebar-accent-foreground: 35 30% 95%;
+    --sidebar-border: 12 25% 14%;
+    --sidebar-ring: 32 95% 52%;
   }
 }
 
@@ -128,9 +131,17 @@
   .hero-gradient {
     background: linear-gradient(
       135deg,
-      hsl(var(--forest-dark) / 0.95) 0%,
-      hsl(var(--forest) / 0.85) 50%,
-      hsl(var(--forest-light) / 0.8) 100%
+      hsl(var(--mahogany-dark) / 0.92) 0%,
+      hsl(var(--mahogany) / 0.85) 50%,
+      hsl(var(--mahogany-light) / 0.75) 100%
+    );
+  }
+
+  .amber-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--amber)) 0%,
+      hsl(var(--amber-light)) 100%
     );
   }
 
@@ -145,7 +156,7 @@
   .text-gradient {
     background: linear-gradient(
       135deg,
-      hsl(var(--gold)) 0%,
+      hsl(var(--amber)) 0%,
       hsl(var(--gold-light)) 100%
     );
     -webkit-background-clip: text;
@@ -176,6 +187,52 @@
   .container-max {
     @apply max-w-7xl mx-auto;
   }
+
+  /* Parallax effect */
+  .parallax-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-section {
+      background-attachment: scroll;
+    }
+  }
+
+  /* Video background optimization */
+  .video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+  }
+
+  /* Glass morphism for booking widget */
+  .glass-card {
+    background: hsl(var(--background) / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  /* Menu tab active state */
+  .menu-tab-active {
+    @apply bg-primary text-primary-foreground shadow-lg;
+    box-shadow: 0 4px 14px hsl(var(--amber) / 0.3);
+  }
+
+  /* Warm glow effect */
+  .warm-glow {
+    box-shadow: 0 0 60px hsl(var(--amber) / 0.2), 0 0 100px hsl(var(--amber) / 0.1);
+  }
 }
 
 @layer utilities {
@@ -189,6 +246,10 @@
 
   .animate-slide-in-right {
     animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
   }
 
   @keyframes fadeIn {
@@ -219,6 +280,17 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 

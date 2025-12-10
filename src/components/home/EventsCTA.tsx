@@ -1,54 +1,54 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { PartyPopper, Users, Sparkles } from "lucide-react";
+import { PartyPopper, Users, Utensils, Music } from "lucide-react";
 import privateParty from "@/assets/private-party.jpg";
+
+const features = [
+  { icon: Users, text: "Groups up to 80 guests" },
+  { icon: Utensils, text: "Custom catering menus" },
+  { icon: Music, text: "Full A/V equipment" },
+  { icon: PartyPopper, text: "Dedicated event staff" },
+];
 
 export function EventsCTA() {
   return (
-    <section className="section-padding bg-secondary">
+    <section className="section-padding bg-background">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div>
-            <p className="text-accent font-medium tracking-widest uppercase mb-3">
-              Private Events
-            </p>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Host Your Next Celebration
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              From intimate gatherings to large parties, our versatile event spaces are perfect for any occasion. Enjoy our private party room, beautiful outdoor patio with fountain, and customizable menus.
-            </p>
+          {/* Image with parallax */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img src={privateParty} alt="Private party setup" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground rounded-xl p-6 shadow-xl hidden md:block">
+              <div className="text-4xl font-heading font-bold text-amber">3</div>
+              <div className="text-sm text-primary-foreground/80">Event Spaces</div>
+            </div>
+          </div>
 
-            <div className="space-y-4 mb-8">
-              {[
-                { icon: PartyPopper, text: "Private party room for up to 50 guests" },
-                { icon: Users, text: "Outdoor patio with scenic fountain views" },
-                { icon: Sparkles, text: "Customizable menu packages" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-accent" />
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            <p className="text-amber font-medium tracking-widest uppercase mb-4">Private Events</p>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Host Your Next <span className="text-gradient">Celebration</span>
+            </h2>
+            <p className="text-muted-foreground text-lg mb-8">
+              From intimate birthday dinners to large corporate gatherings, our versatile spaces make every event unforgettable.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {features.map((feature) => (
+                <div key={feature.text} className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+                    <feature.icon className="w-5 h-5 text-amber" />
                   </div>
-                  <span className="text-foreground">{text}</span>
+                  <span className="text-foreground font-medium">{feature.text}</span>
                 </div>
               ))}
             </div>
-
             <Button variant="gold" size="lg" asChild>
               <Link to="/events">Plan Your Event</Link>
             </Button>
-          </div>
-
-          {/* Image */}
-          <div className="relative">
-            <div className="absolute -bottom-4 -left-4 w-full h-full bg-forest/10 rounded-2xl" />
-            <img
-              src={privateParty}
-              alt="Private party setup"
-              className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-              loading="lazy"
-            />
           </div>
         </div>
       </div>
